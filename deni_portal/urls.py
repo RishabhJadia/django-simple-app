@@ -16,13 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
 
 from apscheduler.schedulers.background import BackgroundScheduler
+from deni_apps import views
 
 
 urlpatterns = [
+    path('', views.default_page, name='default_page'),
     path('admin/', admin.site.urls),
 ]
+
 
 def start_scheduler():
     scheduler = BackgroundScheduler()
