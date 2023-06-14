@@ -1,0 +1,12 @@
+{% extends "admin/object_history.html" %}
+{% load i18n %}
+
+{% block content %}
+    {% if action_list %}
+    {% for action in action_list %}
+      {{ action }}
+    {% endfor %}
+        <p><b>{% trans "Note: " %}</b>{% trans "This audit history view displays log for changes made only through admin site and not from portal and API" %}</p></br>
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
